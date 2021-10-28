@@ -35,6 +35,11 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public long countVisitorsByPlayGround(PlayGround playGround) {
+        return kids.values().stream().filter(v -> v.getPlayGround().equals(playGround)).count();
+    }
+
+    @Override
     public void deletePlayerById(Long id) {
         if (kids.get(id)!=null){
             log.info(" =====  Kid was removed  ====");

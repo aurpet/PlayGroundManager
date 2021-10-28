@@ -4,6 +4,7 @@ package com.playgroundmanager.controllers;
 import com.playgroundmanager.model.Kid;
 import com.playgroundmanager.services.PlayerService;
 import com.playgroundmanager.services.PlayerServiceImpl;
+import com.playgroundmanager.utils.PlayGround;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,13 @@ public class HomeController {
     public @ResponseBody Map<Long, Kid> getAllPlayers(){
         return playerService.showAllPlayers();
     }
+
+    @GetMapping({"/{playGround}"})
+    public ResponseEntity showTotalVisitorsByPlayGround(@PathVariable PlayGround playGround){
+        long totalVisitorByPlayGround = playerService.countVisitorsByPlayGround(playGround);
+        return new ResponseEntity("Total visitors " + totalVisitorByPlayGround + " in " + playGround, HttpStatus.OK);
+    }
+
 
     @DeleteMapping({"/{id}"})
     public ResponseEntity<Void> deletePlayer (@PathVariable long id){

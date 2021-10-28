@@ -1,6 +1,7 @@
 package com.playgroundmanager.services;
 
 import com.playgroundmanager.model.Kid;
+import com.playgroundmanager.utils.PlayGround;
 
 import java.util.Map;
 
@@ -15,4 +16,5 @@ public interface PlayerService {
     int addNewPlayer(Kid kid);
     Map<Long, Kid> showAllPlayers();
     void deletePlayerById(Long id);
+    long countVisitorsByPlayGround(PlayGround playGround);
 }
