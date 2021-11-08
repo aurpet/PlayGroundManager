@@ -3,7 +3,6 @@ package com.playgroundmanager.controllers;
 
 import com.playgroundmanager.model.Kid;
 import com.playgroundmanager.services.PlayerService;
-import com.playgroundmanager.services.PlayerServiceImpl;
 import com.playgroundmanager.utils.PlayGround;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ import java.util.Map;
 public class HomeController {
 
     @Autowired
-    private PlayerServiceImpl playerService;
+    private PlayerService playerService;
 
     @PostMapping("/new-player")
     public ResponseEntity addNewPlayer(@RequestBody Kid kid) {
